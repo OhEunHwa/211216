@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Text Animation Effects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="section">
+    <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis fugiat delectus maiores ipsam possimus dolorum culpa, eos, nam recusandae dolor placeat, laboriosam eveniet molestiae aliquid nihil iusto in modi aspernatur!</p>
+  </div>
+  <script>
+  //now, split text into Letters
+  const text = document.querySelector('.text');
+  text.innerHTML = text.textContent.replace(/\S/g,"<span>$&</span>");
+
+  //now, add active class on hovered <span> tag
+  const letters = document.querySelectorAll('span');
+  //console.log(letters[2].textContent);
+  for (let i=0; i<letters.length; i++){
+    letters[i].addEventListener("mouseover", function () {
+      letters[i].classList.add('active')
+    })
+  }
+</script>
+</body>
+</html>
